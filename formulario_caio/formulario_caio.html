@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Linguagens Programação </title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=PhZcqNXjSCWl&format=png&color=000000"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <style>
+            div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            }
+            textarea {
+                margin-top: 5px;
+            }
+            .box{
+                margin-top: 150px;
+            }
+            :root {
+                --bulma-primary-h: 235deg;
+            }
+            .box{
+                width: auto;
+                height: auto;
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body class="has-background-primary-15 has-text-primary-15-invert">
+        <div class="form-container">
+        <form class="box">
+            <h1 class="title has-text-centered has-text-primary-25">Linguagens de Programação</h2>
+            Usuário <input class="input is-info" type="text" name="usuario" id="usuario"> <br> <br>
+            Senha <input class="input is-danger" type="password" name="senha" id="senha" value="">
+             <br> <br>
+            Digite a sua Linguagem de Programação preferida e o motivo da preferência.
+            <br>
+            <textarea class="textarea is-info is-small" cols="40" rows="5" name="opiniao" id="opiniao"></textarea>
+            <br> <br>
+            Selecione as linguagens você sabe usar 
+            <br>
+            <input type="checkbox" name="linguagem" id="linguagem" value="Python"> Python 
+            <input type="checkbox" name="linguagem" id="linguagem" value="C/C++"> C/C++ 
+            <input type="checkbox" name="linguagem" id="linguagem" value="Java "> Java 
+            <input type="checkbox" name="linguagem" id="linguagem" value="Javascript"> Javascript
+            <input type="checkbox" name="linguagem" id="linguagem" value="PHP"> PHP
+            <br> <br>
+            Selecione a linguagem que você acha a mais difícil
+            <br>
+            <input type="radio" name="dificil" id="dificill" value="Assembly"> Assembly
+            <input type="radio" name="dificil" id="dificil2" value="PHP"> PHP
+            <input type="radio" name="dificil" id="dificil3" value="Java"> Java
+            <input type="radio" name="dificil" id="dificil4" value="Rust"> Rust
+            <input type="radio" name="dificil" id="dificil5" value="Outra"> Outra
+
+             <br> <br>
+            Selecione a linguagem que você mais gostaria de aprender. <br>
+            <div class="select is-info">
+            <select name="aprender" id="aprender">
+                <option value="Python"> Python </option>
+                <option value="C/C++"> C/C++ </option> 
+                <option value="Java"> Java </option>
+                <option value="Javascript"> Javascript </option>
+                <option value="PHP"> PHP </option>
+                <option value="Assembly"> Assembly </option>
+                <option value="Rust"> Rust </option>
+                <option value="C#"> C# </option>
+
+            </select>
+        </div>
+            <br> <br>
+            <input class="button is-light" type="reset" name="limpar" id="limpar" value="Limpar" onclick="limparCaixaRelatorio()"> 
+            <input class="button is-dark" type="button" name="enviar" id="enviar" value="Enviar" onclick="mostrarRelatorio()">
+        </form>
+
+        <br> <br>
+        <div class="box">
+            <h1 class="title has-text-centered has-text-primary-25" id="tituloRelatorio"></h2>
+                <span  id="caixaRelatorio" ></span>
+        </div>
+
+    </div>
+
+    
+
+    <script src="scriptRelatorio.js" type="text/javascript">
+        
+    </script>
+    </body>
+
+    </html>
