@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <locale>
+#include <locale.h>
 using namespace std;
 
 int main() {
@@ -26,7 +26,7 @@ int main() {
     	cin >> idades[i];
     	
     	while(idades[i] < 0){
-		cout << "\nIdade inválida. Digite novamente: ";
+		cout << "\nIdade invÃ¡lida. Digite novamente: ";
     	cin >> idades[i];
 		}
     	
@@ -49,7 +49,7 @@ int main() {
     cout << "\nParticipantes juvenis: " << juvenil;
     cout << "\nParticipantes adultos: " << adulto;
     
-    cout << "\nDeseja consultar a classificação dos participantes (S/N)? ";
+    cout << "\nDeseja consultar a classificaÃ§Ã£o dos participantes (S/N)? ";
     cin >> sn;
     
     if(sn == 'S'){
