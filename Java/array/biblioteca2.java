@@ -80,7 +80,7 @@ public class Test {
                     ops[0]
             ));
             
-            if(op == 1){
+            if(op == 1){ //Mudar dps aqui
                 System.out.printf(" Total de livros: %d \n Total de livros curtos: %d \n Total de medios: %d \n Total de longos: %d\n", total, curto, medio, longo);
             }
             else if(op == 2){
