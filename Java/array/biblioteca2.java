@@ -1,11 +1,11 @@
-package test;
+package biblioteca2; //sistema basico de bibliotea com joptionpane
 
 import javax.swing.JOptionPane;
 /**
  *
  * @author Caio
  */
-public class Test {
+public class Biblioteca2 {
     private static int curto = 0;
     private static int medio = 0;
     private static int longo = 0;
@@ -29,8 +29,9 @@ public class Test {
     } else if (paginas > 300) {
         longo++;
     }
-    return total++;
-    }
+    total++;
+    return total;
+}
     
     public static void main(String[] args) {
         
@@ -68,55 +69,121 @@ public class Test {
             contagem(paginas[i]);
 
     }
-        int op = 1;
+        int op = 0;
+        int pesquisa = 0;
         Object[] ops = {"Estatísticas", "Todos os livros", "Pesquisar"};
-        while(op >= 1 && op <= 3){
-            op = Integer.parseInt(JOptionPane.showOptionDialog(
-            null,
-                    "Escolha uma opção: \n1.Estatisticas \n 2.Todos os livros \n 3.Pesquisar",
+        Object[] opps = {"Titulo", "Autor", "Classificação"};
+        Object[] classificacoes = {"Curto", "Medio", "Longo"};
+        while (true) {
+            op = JOptionPane.showOptionDialog(
+                    null,
+                    "Escolha uma opção: \n1. Estatísticas \n2. Todos os livros \n3. Pesquisar",
                     "Opções",
                     JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.WARNING_MESSAGE,
+                    null, 
                     ops,
                     ops[0]
-            ));
+            );
             
-            if(op == 1){ //Mudar dps aqui
-                System.out.printf(" Total de livros: %d \n Total de livros curtos: %d \n Total de medios: %d \n Total de longos: %d\n", total, curto, medio, longo);
+            if (op == JOptionPane.CLOSED_OPTION) {
+                break;
+            }
+                                  
+            if(op == 0){
+                String mensagem = String.format(" Total de livros: %d \n Total de livros curtos: %d \n Total de medios: %d \n Total de longos: %d\n", total, curto, medio, longo);
+                JOptionPane.showMessageDialog(
+                        null,
+                        mensagem,
+                        "Estatísticas",
+                        JOptionPane.INFORMATION_MESSAGE
+                        );
+            }
+            else if(op == 1){
+                for(int i=0;i<qtd;i++){
+                   String mensagem = String.format("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                    JOptionPane.showMessageDialog(null, 
+                            mensagem, 
+                            "Livros",
+                            JOptionPane.INFORMATION_MESSAGE
+                            );
+                }
             }
             else if(op == 2){
-                for(int i=0;i<qtd;i++){
-                    System.out.printf("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
-                }
-            }
-            else if(op == 3){
-                System.out.println("Pesquisar por titulo, autor ou classificacao? ");
-                String pesquisa = read.next();
-                read.nextLine();
                 
-                if(pesquisa.equalsIgnoreCase("titulo")){
-                    System.out.println("Digite o titulo para pesquisar: ");
-                    String titulo = read.nextLine();
+               pesquisa = JOptionPane.showOptionDialog(
+                null,
+                        "Pesquisar por titulo, autor ou classificacao? ",
+                        "Pesquisa",
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.WARNING_MESSAGE,
+                        null,
+                opps,
+                opps[0]
+                );        
+               
+               if (pesquisa == JOptionPane.CLOSED_OPTION || pesquisa == JOptionPane.CANCEL_OPTION) {
+                    continue;
+                }
+                
+                if(pesquisa == 0){
+                    String titulo = JOptionPane.showInputDialog(
+                    null,
+                            "Digite o titulo para pesquisar: ",
+                            "Titulo",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
                     for(int i=0;i<qtd;i++){
                         if(titulos[i].equalsIgnoreCase(titulo)){
-                        System.out.printf("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                            String mensagem = String.format("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                        JOptionPane.showMessageDialog(
+                        null,
+                                mensagem,
+                                "Pesquisa",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
                         }
                     }
                 }
-                else if(pesquisa.equalsIgnoreCase("autor")){
-                    System.out.println("Digite o nome do autor: ");
-                    String autor = read.nextLine();
+                else if(pesquisa == 1){
+                    String autor = JOptionPane.showInputDialog(
+                    null,
+                            "Digite o nome do autor: ",
+                            "Pesquisa",
+                            JOptionPane.QUESTION_MESSAGE
+                    );
                     for(int i=0;i<qtd;i++){
                         if(autor.equalsIgnoreCase(autores[i])){
-                            System.out.printf("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                            String mensagem = String.format("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                            JOptionPane.showMessageDialog(
+                            null,
+                                    mensagem,
+                                    "Pesquisa",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
                         }
                     }
                 }
-                else if(pesquisa.equalsIgnoreCase("classificacao")){
-                    System.out.println("Digite a cassificacao: ");
-                    String classificacao = read.nextLine();
+                else if(pesquisa == 2){
+                    int o = JOptionPane.showOptionDialog(
+                    null,
+                            "Escoha a classificação: ",
+                            "Classificação",
+                            JOptionPane.YES_NO_CANCEL_OPTION,
+                            JOptionPane.WARNING_MESSAGE,
+                            null,
+                            classificacoes,
+                            classificacoes[0]
+                    );
                     for(int i=0;i<qtd;i++){
-                        if(classificacao.equalsIgnoreCase(classificar(paginas[i]))){
-                            System.out.printf("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                        if(classificacoes[o].equals(classificar(paginas[i]))){
+                            String mensagem = String.format("\n---%s---\nAutor: %s \nQuantidade de paginas: %d \nLivro "+ classificar(paginas[i]), titulos[i], autores[i], paginas[i]);
+                            JOptionPane.showMessageDialog(
+                            null,
+                                    mensagem,
+                                    "Classificação",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
                         }
                     }
                 }
