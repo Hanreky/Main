@@ -122,7 +122,7 @@ public class Biblioteca2 {
                 opps[0]
                 );        
                
-               if (pesquisa == JOptionPane.CLOSED_OPTION || pesquisa == JOptionPane.CANCEL_OPTION) {
+               if (pesquisa == JOptionPane.CLOSED_OPTION) {
                     continue;
                 }
                 
