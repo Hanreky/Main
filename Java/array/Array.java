@@ -1,6 +1,6 @@
 package array;
 
-import java.util.Scanner; // Biblioteca para ler a váriavel
+import java.util.Scanner;
 
 public class Array {
     
